@@ -1,8 +1,8 @@
-#include <RectanglePoolBuilder.h>
+#include "RectanglePoolBuilder.h"
 #include <string>
 
 
-RectanglePoolBuilder::RectanglePoolBuilder(/* args */)
+RectanglePoolBuilder::RectanglePoolBuilder()
 {
 }
 
@@ -13,17 +13,17 @@ RectanglePoolBuilder::~RectanglePoolBuilder()
 void RectanglePoolBuilder::buildSurface(Pool& tPool, int sideA, int sideB){
     int surface;
     surface = sideA * sideB;
-    tPool.setSurface(toString(surface));
+    tPool.setSurface(std::to_string(surface));
 }
-void RectanglePoolBuilder::buildColor(Pool& tPool, string tColor){  
+void RectanglePoolBuilder::buildColor(Pool& tPool, std::string tColor){  
     tPool.setColor(tColor);
 }
-void RectanglePoolBuilder::buildMaterial(Pool& tPool, string tMaterial){
+void RectanglePoolBuilder::buildMaterial(Pool& tPool, std::string tMaterial){
     tPool.setMaterial(tMaterial);
 }
-Pool RectanglePoolBuilder::buildPool(int sideA, int sideB, string color, string material){
+RectanglePool RectanglePoolBuilder::buildPool(int sideA, int sideB, std::string color, std::string material){
     RectanglePool pool;
-    buildSurface(pool, int sideA, int sideB);
+    buildSurface(pool, sideA, sideB);
     buildColor(pool, color);
     buildMaterial(pool, material);
 

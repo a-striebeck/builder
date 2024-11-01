@@ -1,14 +1,19 @@
-#include <Pool.h>
+#ifndef  ROUNDPOOL_H
+#define ROUNDPOOL_H
+#include "Pool.h"
+#include <string>
 
 class RoundPool : public Pool
 {
 private:
-    string diameter;
+    std::string diameter;
 public:
     RoundPool();
     ~RoundPool();
-    void setDiameter(string& tDiameter);
-    string getDiameter() const;
-    void showDetails();
+    void setDiameter(const std::string& tDiameter);
+    std::string getDiameter() const;
+    void showDetails() const override;
 
 };
+
+#endif // ROUNDPOOL_H
